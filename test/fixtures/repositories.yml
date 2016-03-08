@@ -1,17 +1,21 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  repo_id: 1
   name: MyString
-  github_profile_nickname: MyString
   full_name: MyString
+  github_profile_nickname: MyString
   html_url: MyString
   description: MyText
-  crated_at: 2016-03-08 12:03:05
+  fork: false
+  crated_at: 2016-03-08 18:40:21
   git_url: MyString
-  svn_url: MyString
+  ssh_url: MyString
+  clone_url: MyString
   watchers_count: 1
   language: MyString
   has_issues: false
+  has_downloads: false
   has_wiki: false
   forks_count: 1
   open_issues_count: 1
@@ -19,17 +23,21 @@ one:
   watchers: 1
 
 two:
+  repo_id: 1
   name: MyString
-  github_profile_nickname: MyString
   full_name: MyString
+  github_profile_nickname: MyString
   html_url: MyString
   description: MyText
-  crated_at: 2016-03-08 12:03:05
+  fork: false
+  crated_at: 2016-03-08 18:40:21
   git_url: MyString
-  svn_url: MyString
+  ssh_url: MyString
+  clone_url: MyString
   watchers_count: 1
   language: MyString
   has_issues: false
+  has_downloads: false
   has_wiki: false
   forks_count: 1
   open_issues_count: 1

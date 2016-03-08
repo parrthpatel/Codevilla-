@@ -1,8 +1,7 @@
 class RepositoriesController < ApplicationController
   before_action :set_repository, only: [:show, :edit, :update, :destroy]
 
-  # GET /repositories
-  # GET /repositories.json
+
   def index
     @repositories = Repository.all
   end
@@ -69,6 +68,6 @@ class RepositoriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def repository_params
-      params.require(:repository).permit(:name, :github_profile_nickname, :full_name, :html_url, :description, :crated_at, :git_url, :svn_url, :watchers_count, :language, :has_issues, :has_wiki, :forks_count, :open_issues_count, :open_issues, :watchers)
+      params.require(:repository).permit(:repo_id, :name, :full_name, :github_profile_nickname, :html_url, :description, :fork, :crated_at, :git_url, :ssh_url, :clone_url, :watchers_count, :language, :has_issues, :has_downloads, :has_wiki, :forks_count, :open_issues_count, :open_issues, :watchers)
     end
 end

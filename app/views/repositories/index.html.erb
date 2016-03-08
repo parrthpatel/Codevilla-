@@ -5,17 +5,21 @@
 <table>
   <thead>
     <tr>
+      <th>Repo</th>
       <th>Name</th>
-      <th>Github profile nickname</th>
       <th>Full name</th>
+      <th>Github profile nickname</th>
       <th>Html url</th>
       <th>Description</th>
+      <th>Fork</th>
       <th>Crated at</th>
       <th>Git url</th>
-      <th>Svn url</th>
+      <th>Ssh url</th>
+      <th>Clone url</th>
       <th>Watchers count</th>
       <th>Language</th>
       <th>Has issues</th>
+      <th>Has downloads</th>
       <th>Has wiki</th>
       <th>Forks count</th>
       <th>Open issues count</th>
@@ -28,17 +32,21 @@
   <tbody>
     <% @repositories.each do |repository| %>
       <tr>
+        <td><%= repository.repo_id %></td>
         <td><%= repository.name %></td>
-        <td><%= repository.github_profile_nickname %></td>
         <td><%= repository.full_name %></td>
+        <td><%= repository.github_profile_nickname %></td>
         <td><%= repository.html_url %></td>
         <td><%= repository.description %></td>
+        <td><%= repository.fork %></td>
         <td><%= repository.crated_at %></td>
         <td><%= repository.git_url %></td>
-        <td><%= repository.svn_url %></td>
+        <td><%= repository.ssh_url %></td>
+        <td><%= repository.clone_url %></td>
         <td><%= repository.watchers_count %></td>
         <td><%= repository.language %></td>
         <td><%= repository.has_issues %></td>
+        <td><%= repository.has_downloads %></td>
         <td><%= repository.has_wiki %></td>
         <td><%= repository.forks_count %></td>
         <td><%= repository.open_issues_count %></td>
