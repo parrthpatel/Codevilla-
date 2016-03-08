@@ -1,45 +1,18 @@
 class GithubProfilesController < ApplicationController
-  before_action :set_github_profile, only: [:show, :edit, :update, :destroy]
-
-  # GET /github_profiles
-  # GET /github_profiles.json
-  def index
-    @github_profiles = GithubProfile.all
-  end
-
-  # GET /github_profiles/1
-  # GET /github_profiles/1.json
+  before_action :set_github_profile, only: [:show, :edit, :update]
   def show
+    render layout: "authen"
   end
 
-  # GET /github_profiles/new
-  def new
-    @github_profile = GithubProfile.new
-  end
+  
 
   # GET /github_profiles/1/edit
   def edit
+    render layout: "authen"
   end
 
-  # POST /github_profiles
-  # POST /github_profiles.json
-  def create
-    @github_profile = GithubProfile.new(github_profile_params)
-
-    respond_to do |format|
-      if @github_profile.save
-        format.html { redirect_to @github_profile, notice: 'Github profile was successfully created.' }
-        format.json { render :show, status: :created, location: @github_profile }
-      else
-        format.html { render :new }
-        format.json { render json: @github_profile.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # PATCH/PUT /github_profiles/1
-  # PATCH/PUT /github_profiles/1.json
   def update
+
     respond_to do |format|
       if @github_profile.update(github_profile_params)
         format.html { redirect_to @github_profile, notice: 'Github profile was successfully updated.' }
@@ -53,14 +26,7 @@ class GithubProfilesController < ApplicationController
 
   # DELETE /github_profiles/1
   # DELETE /github_profiles/1.json
-  def destroy
-    @github_profile.destroy
-    respond_to do |format|
-      format.html { redirect_to github_profiles_url, notice: 'Github profile was successfully destroyed.' }
-      format.json { head :no_content }
-    end
-  end
-
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_github_profile
@@ -69,6 +35,6 @@ class GithubProfilesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def github_profile_params
-      params.require(:github_profile).permit(:user_id, :nickname, :email, :name, :image, :location, :public_repo, :public_gists, :followers, :following, :member_since, :private_repos, :github_link, :blog_link, :bio, :access_token)
+      params.require(:github_profile).permit(:user_id, :nickname, :email, :name, :image, :location, :public_repo, :public_gists, :followers, :following, :member_since, :private_repos, :github_link, :blog_link, :bio)
     end
 end

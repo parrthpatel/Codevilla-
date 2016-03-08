@@ -1,14 +1,14 @@
-
-        <div class="wrapper wrapper-content">
-            <div class="row animated fadeInRight">
+<div class="wrapper wrapper-content">
+  <div class="row animated fadeInRight">
                 <div class="col-md-4">
                     <div class="ibox float-e-margins">
                         <div class="ibox-title">
                             <h5>Profile Detail</h5>
                             <div class="ibox-tools">
-                                <a class="collapse-link">
-                                    <i class="fa fa-pencil-square-o fa-2x"></i>
-                                </a>
+                            
+                                <%= link_to "<i class='fa fa-pencil-square-o fa-2x'></i>".html_safe, edit_github_profile_path(current_user.github_profile.id) %>
+                                    
+                                
                             </div>
                         </div>
                         <div>
@@ -23,8 +23,9 @@
                                     About me
                                 </h5>
                                 <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitat.
+                                   <%= current_user.github_profile.bio %>
                                 </p>
+                                 <% link_to 'edit', edit_github_profile_path(current_user.github_profile.id), class: "btn-primary" %>
                                 <div class="row m-t-lg">
                                     <div class="col-md-4">
                                         <span><i class="fa fa-calendar-check-o fa-2x"></i></span>
@@ -45,16 +46,18 @@
                                             <button type="button" class="btn btn-primary btn-sm btn-block"><i class="fa fa-envelope"></i> Send Message</button>
                                         </div>
                                         <div class="col-md-6">
+                                       
                                             <button type="button" class="btn btn-default btn-sm btn-block"><i class="fa fa-coffee"></i> Buy a coffee</button>
                                         </div>
                                     </div>
+
                                 </div>
                             </div>
                     </div>
                 </div>
-                    </div>
-               
             </div>
+               
+        </div>
 
 </div>
 </div>

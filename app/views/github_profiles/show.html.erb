@@ -1,3 +1,20 @@
+<div class="wrapper wrapper-content animated fadeInRight">
+
+                <div class="col-lg-12">
+                    <div class="ibox float-e-margins">
+                        <div class="ibox-title">
+                            <h2>Your Github Profile Details</h2>
+                            <div class="ibox-tools">
+                                <a class="collapse-link">
+                                    <i class="fa fa-chevron-up"></i>
+                                </a>
+                                <a class="close-link">
+                                    <i class="fa fa-times"></i>
+                                </a>
+                            </div>
+                        </div>
+
+<div class="ibox-content">
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -20,10 +37,6 @@
   <%= @github_profile.name %>
 </p>
 
-<p>
-  <strong>Image:</strong>
-  <%= @github_profile.image %>
-</p>
 
 <p>
   <strong>Location:</strong>
@@ -75,10 +88,9 @@
   <%= @github_profile.bio %>
 </p>
 
-<p>
-  <strong>Access token:</strong>
-  <%= @github_profile.access_token %>
-</p>
 
 <%= link_to 'Edit', edit_github_profile_path(@github_profile) %> |
-<%= link_to 'Back', github_profiles_path %>
+<%= link_to 'Back', welcome_profile_path %>
+</div>
+</div></div>
+</div>
