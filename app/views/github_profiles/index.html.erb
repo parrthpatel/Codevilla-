@@ -1,0 +1,57 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Github Profiles</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Nickname</th>
+      <th>Email</th>
+      <th>Name</th>
+      <th>Image</th>
+      <th>Location</th>
+      <th>Public repo</th>
+      <th>Public gists</th>
+      <th>Followers</th>
+      <th>Following</th>
+      <th>Member since</th>
+      <th>Private repos</th>
+      <th>Github link</th>
+      <th>Blog link</th>
+      <th>Bio</th>
+      <th>Access token</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @github_profiles.each do |github_profile| %>
+      <tr>
+        <td><%= github_profile.user_id %></td>
+        <td><%= github_profile.nickname %></td>
+        <td><%= github_profile.email %></td>
+        <td><%= github_profile.name %></td>
+        <td><%= github_profile.image %></td>
+        <td><%= github_profile.location %></td>
+        <td><%= github_profile.public_repo %></td>
+        <td><%= github_profile.public_gists %></td>
+        <td><%= github_profile.followers %></td>
+        <td><%= github_profile.following %></td>
+        <td><%= github_profile.member_since %></td>
+        <td><%= github_profile.private_repos %></td>
+        <td><%= github_profile.github_link %></td>
+        <td><%= github_profile.blog_link %></td>
+        <td><%= github_profile.bio %></td>
+        <td><%= github_profile.access_token %></td>
+        <td><%= link_to 'Show', github_profile %></td>
+        <td><%= link_to 'Edit', edit_github_profile_path(github_profile) %></td>
+        <td><%= link_to 'Destroy', github_profile, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Github profile', new_github_profile_path %>

@@ -1,0 +1,84 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @github_profile.user_id %>
+</p>
+
+<p>
+  <strong>Nickname:</strong>
+  <%= @github_profile.nickname %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @github_profile.email %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @github_profile.name %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= @github_profile.image %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @github_profile.location %>
+</p>
+
+<p>
+  <strong>Public repo:</strong>
+  <%= @github_profile.public_repo %>
+</p>
+
+<p>
+  <strong>Public gists:</strong>
+  <%= @github_profile.public_gists %>
+</p>
+
+<p>
+  <strong>Followers:</strong>
+  <%= @github_profile.followers %>
+</p>
+
+<p>
+  <strong>Following:</strong>
+  <%= @github_profile.following %>
+</p>
+
+<p>
+  <strong>Member since:</strong>
+  <%= @github_profile.member_since %>
+</p>
+
+<p>
+  <strong>Private repos:</strong>
+  <%= @github_profile.private_repos %>
+</p>
+
+<p>
+  <strong>Github link:</strong>
+  <%= @github_profile.github_link %>
+</p>
+
+<p>
+  <strong>Blog link:</strong>
+  <%= @github_profile.blog_link %>
+</p>
+
+<p>
+  <strong>Bio:</strong>
+  <%= @github_profile.bio %>
+</p>
+
+<p>
+  <strong>Access token:</strong>
+  <%= @github_profile.access_token %>
+</p>
+
+<%= link_to 'Edit', edit_github_profile_path(@github_profile) %> |
+<%= link_to 'Back', github_profiles_path %>

@@ -1,0 +1,60 @@
+
+        <div class="wrapper wrapper-content">
+            <div class="row animated fadeInRight">
+                <div class="col-md-4">
+                    <div class="ibox float-e-margins">
+                        <div class="ibox-title">
+                            <h5>Profile Detail</h5>
+                            <div class="ibox-tools">
+                                <a class="collapse-link">
+                                    <i class="fa fa-pencil-square-o fa-2x"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="ibox-content no-padding border-left-right">
+                             <center>   
+                               <img src="<%= current_user.github_profile.image %>", class="img-responsive"></center>
+                            </div>
+                            <div class="ibox-content profile-content">
+                                <h4><strong><%=  current_user.github_profile.name %></strong></h4>
+                                <p><i class="fa fa-map-marker fa-2x"></i> <%= current_user.github_profile.location %></p>
+                                <h5>
+                                    About me
+                                </h5>
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitat.
+                                </p>
+                                <div class="row m-t-lg">
+                                    <div class="col-md-4">
+                                        <span><i class="fa fa-calendar-check-o fa-2x"></i></span>
+                                        <h5><strong><%= Date.parse current_user.github_profile.member_since %></strong> Joined</h5>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <i class="fa fa-gratipay fa-2x"></i>
+                                        <h5><strong><%= current_user.github_profile.following %></strong> Following</h5>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <i class="fa fa-thumbs-o-up fa-2x"></i>
+                                        <h5><strong> <%= current_user.github_profile.followers %></strong> Followers</h5>
+                                    </div>
+                                </div>
+                                <div class="user-button">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <button type="button" class="btn btn-primary btn-sm btn-block"><i class="fa fa-envelope"></i> Send Message</button>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <button type="button" class="btn btn-default btn-sm btn-block"><i class="fa fa-coffee"></i> Buy a coffee</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+                    </div>
+               
+            </div>
+
+</div>
+</div>

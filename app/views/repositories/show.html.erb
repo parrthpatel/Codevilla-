@@ -1,0 +1,84 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @repository.name %>
+</p>
+
+<p>
+  <strong>Github profile nickname:</strong>
+  <%= @repository.github_profile_nickname %>
+</p>
+
+<p>
+  <strong>Full name:</strong>
+  <%= @repository.full_name %>
+</p>
+
+<p>
+  <strong>Html url:</strong>
+  <%= @repository.html_url %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @repository.description %>
+</p>
+
+<p>
+  <strong>Crated at:</strong>
+  <%= @repository.crated_at %>
+</p>
+
+<p>
+  <strong>Git url:</strong>
+  <%= @repository.git_url %>
+</p>
+
+<p>
+  <strong>Svn url:</strong>
+  <%= @repository.svn_url %>
+</p>
+
+<p>
+  <strong>Watchers count:</strong>
+  <%= @repository.watchers_count %>
+</p>
+
+<p>
+  <strong>Language:</strong>
+  <%= @repository.language %>
+</p>
+
+<p>
+  <strong>Has issues:</strong>
+  <%= @repository.has_issues %>
+</p>
+
+<p>
+  <strong>Has wiki:</strong>
+  <%= @repository.has_wiki %>
+</p>
+
+<p>
+  <strong>Forks count:</strong>
+  <%= @repository.forks_count %>
+</p>
+
+<p>
+  <strong>Open issues count:</strong>
+  <%= @repository.open_issues_count %>
+</p>
+
+<p>
+  <strong>Open issues:</strong>
+  <%= @repository.open_issues %>
+</p>
+
+<p>
+  <strong>Watchers:</strong>
+  <%= @repository.watchers %>
+</p>
+
+<%= link_to 'Edit', edit_repository_path(@repository) %> |
+<%= link_to 'Back', repositories_path %>

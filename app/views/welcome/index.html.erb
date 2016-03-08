@@ -1,0 +1,96 @@
+
+<div class="row">
+<div class="col-lg-12">
+    <div class="wrapper wrapper-content">
+
+              <div class="wrapper wrapper-content animated fadeInCenter">
+
+
+            <div class="col-lg-3">
+                <div class="widget style1 red-bg">
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <i class="fa fa-gratipay fa-5x"></i>
+                        </div>
+                        <div class="col-xs-8 text-right">
+                            <span>Following</span>
+                            <h2 class="font-bold"><%= current_user.github_profile.following %></h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="widget style1 lazur-bg">
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <i class="fa fa-thumbs-o-up fa-5x"></i>
+                        </div>
+                        <div class="col-xs-8 text-right">
+                            <span> Followers</span>
+                            <h2 class="font-bold"><%= current_user.github_profile.followers %></h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="widget style1 yellow-bg">
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <i class="fa fa-code fa-5x"></i>
+                        </div>
+                        <div class="col-xs-8 text-right">
+                            <span> Public Rrepository </span>
+                            <h2 class="font-bold"><%= current_user.github_profile.public_repo %></h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="widget style1 navy-bg">
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <i class="fa fa-code fa-5x"></i>
+                        </div>
+                        <div class="col-xs-8 text-right">
+                            <span> Public Gists </span>
+                            <h2 class="font-bold"><%= current_user.github_profile.public_gists %></h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+<% count=0%>
+      <% @repositories.each do |repo| %>
+          <% count +=1 %>
+         <%= open_row count %>
+
+            <div class="col-lg-3">
+                <div class="contact-box center-version">
+
+                    <a href="profile.html">
+
+                        <h3 class="m-b-xs"><strong><%= repo[:name].capitalize %></strong></h3>
+
+                        <div class="font-bold"><%= repo[:description].capitalize %></div>
+                        <p class="m-t-md">
+                            <strong>Tags</strong><br>
+                           <i class="fa fa-eye"></i> Watchers: <%= repo[:watchers] %><br>
+
+                            <i class="fa fa-code-fork"></i> Forks: <%= repo[:forks]%><br>
+                            <i class="fa fa-star"></i> Stargazers: <%= repo[:stargazers_count] %>
+                        </p>
+
+                    </a>
+                    <div class="contact-box-footer">
+                        <%= link_to 'Save', '#', class: "btn btn-primary" %>
+                            <a class="btn btn-primary"><i class="fa fa-floppy-o"></i> Save</a>
+
+
+                    </div>
+                </div>
+                </div>
+
+            <%= close_row count %>
+
+
+    <% end %>
+    <%= render 'welcome/welcome.js.erb'  %>
