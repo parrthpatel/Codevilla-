@@ -1,5 +1,124 @@
-<h1>New Repository</h1>
+<div class="wrapper wrapper-content animated fadeInRight">
 
-<%= render 'form' %>
+                <div class="col-lg-12">
+                    <div class="ibox float-e-margins">
+                        <div class="ibox-title">
+                            <h2>New Repository</h2>
+                            <div class="ibox-tools">
+                                <a class="collapse-link">
+                                    <i class="fa fa-chevron-up"></i>
+                                </a>
+                                <a class="close-link">
+                                    <i class="fa fa-times"></i>
+                                </a>
+                            </div>
+                        </div>
 
-<%= link_to 'Back', repositories_path %>
+<div class="ibox-content">
+
+<%= form_for @repository, :html => {:multipart => true} do |f| %>
+  <% if @repository.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@repository.errors.count, "error") %> prohibited this repository from being saved:</h2>
+
+      <ul>
+      <% @repository.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :repo_id %><br>
+    <%= f.number_field :repo_id,:multiple => true, value: @id %>
+  </div>
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name, value: @name %>
+  </div>
+  <div class="field">
+    <%= f.label :full_name %><br>
+    <%= f.text_field :full_name, :multiple => true, value: @full_name %>
+  </div>
+  <div class="field">
+    <%= f.label :github_profile_nickname %><br>
+    <%= f.text_field :github_profile_nickname, value: @maker %>
+  </div>
+  <div class="field">
+    <%= f.label :html_url %><br>
+    <%= f.text_field :html_url, value: @html_url %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description, value: @description %>
+  </div>
+  <div class="field">
+    <%= f.label :fork %><br>
+    <%= f.check_box :fork, value: @fork %>
+  </div>
+  <div class="field">
+    <%= f.label :crated_at %><br>
+    <%= f.datetime_select :crated_at, value: @crated_at %>
+  </div>
+  <div class="field">
+    <%= f.label :git_url %><br>
+    <%= f.text_field :git_url, value: @git_url %>
+  </div>
+  <div class="field">
+    <%= f.label :ssh_url %><br>
+    <%= f.text_field :ssh_url, value: @ssh_url %>
+  </div>
+  <div class="field">
+    <%= f.label :clone_url %><br>
+    <%= f.text_field :clone_url, value: @clone_url %>
+  </div>
+  <div class="field">
+    <%= f.label :watchers_count %><br>
+    <%= f.number_field :watchers_count, value: @watchers_count %>
+  </div>
+  <div class="field">
+    <%= f.label :language %><br>
+    <%= f.text_field :language, value: @language %>
+  </div>
+  <div class="field">
+    <%= f.label :has_issues %><br>
+    <%= f.check_box :has_issues, value: @has_issues %>
+  </div>
+  <div class="field">
+    <%= f.label :has_downloads %><br>
+    <%= f.check_box :has_downloads, value: @has_downloads %>
+  </div>
+  <div class="field">
+    <%= f.label :has_wiki %><br>
+    <%= f.check_box :has_wiki, value: @has_wiki %>
+  </div>
+  <div class="field">
+    <%= f.label :forks_count %><br>
+    <%= f.number_field :forks_count, value: @forks_count %>
+  </div>
+  <div class="field">
+    <%= f.label :open_issues_count %><br>
+    <%= f.number_field :open_issues_count, value: @open_issues_count %>
+  </div>
+  <div class="field">
+    <%= f.label :open_issues %><br>
+    <%= f.check_box :open_issues, value: @open_issues %>
+  </div>
+  <div class="field">
+    <%= f.label :watchers %><br>
+    <%= f.number_field :watchers, value: @watchers %>
+  </div>
+  <div class="field">
+    <%= f.file_field :codezip %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<%= link_to 'Back', root_path %>
+</div>
+</div>
+</div>
+</div>

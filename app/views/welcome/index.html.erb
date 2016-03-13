@@ -65,7 +65,8 @@
             <div class="col-lg-3">
                 <div class="contact-box center-version">
 
-                    <a href="profile.html">
+                    <a href="repositories">
+
 
                         <h3 class="m-b-xs"><strong><%= repo[:name].capitalize %></strong></h3>
 
@@ -78,21 +79,14 @@
                             <i class="fa fa-star"></i> Stargazers: <%= repo[:stargazers_count] %>
                         </p>
 
-                    </a>                     <div class="contact-box-footer">                         <%= link_to
-'Save', new_repository_path, class: "btn btn-primary" %>                             <a class="btn btn-primary"><i
-class="fa fa-floppy-o"></i> Save</a>                         <%= button_to "Create", { :controller =>
-"repositories",:action => "create" }, remote: true, form:{ "data-type" => "json" }, :id => <% repo[:id] %>, :name =><%
-repo[:name] %>, :full_name => <% repo[:full_name] %>, :github_profile_nickname => current_user.github_profile.nickname,
-:html_url => <% repo[:html_url] %>, :description => <% repo[:description] %>, :fork => <% repo[:fork] %> :crated_at =>
-<% repo[:created_at] %>, :git_url => repo[:git_url], :ssh_url => repo[:ssh_url], :clone_url => repo[:clone_url]
-:watchers_count => repo[:watchers_count], :language => repo[:language], :has_issues => repo[:has_issues], :has_downloads
-=> repo[:has_downloads], :has_wiki => repo[:has_wiki], :forks_count => repo[:forks_count], :open_issues_count =>
-repo[:open_issues_count], :open_issues => repo[:open_issues], :watchers => repo[:watchers], {:method=> :post} } %>
+                    </a>                     <div class="contact-box-footer">
 
-
-                    </div>
-                </div>
-                </div>
+                                             <%= link_to "<i class='fa fa-
+floppy-o'> Save</i>".html_safe, new_repository_path(id_param: repo[:id],name_param: repo[:name], fullname_param: repo[:full_name], github_profile_nickname_param: repo[:nickname] , html_url_param: repo[:html_url], description_param: repo[:description], fork_param: repo[:fork], crated_at_param: repo[:crated_at], git_url_param: repo[:git_url], ssh_url_param: repo[:ssh_url], clone_url_param: repo[:clone_url], watchers_count_param: repo[:watchers_count], language_param: repo[:language], has_issues_param: repo[:has_issues], has_downloads_param: repo[:has_downloads], has_wiki_param: repo[:has_wiki], forks_count_param: repo[:forks_count],open_issues_count_param: repo[:open_issues_count], open_issues_param: repo[:open_issues_param], watchers_param: repo[:watchers] ),
+class: "btn btn-primary" %> </div>
+                 </div>
+</div>
 
             <%= close_row count %>
     <% end %>
+    

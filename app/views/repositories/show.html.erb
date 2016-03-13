@@ -100,5 +100,10 @@
   <%= @repository.watchers %>
 </p>
 
+<p>    
+<strong>Code File:</strong>
+<%= @repository.codezip %>
+  </p>
+
 <%= link_to 'Edit', edit_repository_path(@repository) %> |
 <%= link_to 'Back', repositories_path %>

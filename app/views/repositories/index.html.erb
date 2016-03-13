@@ -2,29 +2,16 @@
 
 <h1>Listing Repositories</h1>
 
-<table>
+<table class="table table-striped table-bordered table-hover table-condensed" >
   <thead>
     <tr>
-      <th>Repo</th>
       <th>Name</th>
-      <th>Full name</th>
-      <th>Github profile nickname</th>
       <th>Html url</th>
       <th>Description</th>
-      <th>Fork</th>
-      <th>Crated at</th>
       <th>Git url</th>
       <th>Ssh url</th>
       <th>Clone url</th>
-      <th>Watchers count</th>
       <th>Language</th>
-      <th>Has issues</th>
-      <th>Has downloads</th>
-      <th>Has wiki</th>
-      <th>Forks count</th>
-      <th>Open issues count</th>
-      <th>Open issues</th>
-      <th>Watchers</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -32,26 +19,13 @@
   <tbody>
     <% @repositories.each do |repository| %>
       <tr>
-        <td><%= repository.repo_id %></td>
         <td><%= repository.name %></td>
-        <td><%= repository.full_name %></td>
-        <td><%= repository.github_profile_nickname %></td>
         <td><%= repository.html_url %></td>
         <td><%= repository.description %></td>
-        <td><%= repository.fork %></td>
-        <td><%= repository.crated_at %></td>
         <td><%= repository.git_url %></td>
         <td><%= repository.ssh_url %></td>
         <td><%= repository.clone_url %></td>
-        <td><%= repository.watchers_count %></td>
         <td><%= repository.language %></td>
-        <td><%= repository.has_issues %></td>
-        <td><%= repository.has_downloads %></td>
-        <td><%= repository.has_wiki %></td>
-        <td><%= repository.forks_count %></td>
-        <td><%= repository.open_issues_count %></td>
-        <td><%= repository.open_issues %></td>
-        <td><%= repository.watchers %></td>
         <td><%= link_to 'Show', repository %></td>
         <td><%= link_to 'Edit', edit_repository_path(repository) %></td>
         <td><%= link_to 'Destroy', repository, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -62,4 +36,4 @@
 
 <br>
 
-<%= link_to 'New Repository', new_repository_path %>
+<%= link_to "<i class = 'fa fa-home'>  Home</i>".html_safe, root_path, class: "btn btn-primary" %>
