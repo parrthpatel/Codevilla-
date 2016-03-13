@@ -15,6 +15,7 @@ gem 'devise'
 gem 'omniauth-github'
 gem 'sweet-alert'
 gem 'carrierwave'
+gem 'acts-as-taggable-on', '~> 3.4'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 group :development, :test do
