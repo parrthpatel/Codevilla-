@@ -104,6 +104,9 @@
 <strong>Code File:</strong>
 <%= @repository.codezip %>
   </p>
+  <p>
+Tags: <%= raw @repository.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
+</p>
 
 <%= link_to 'Edit', edit_repository_path(@repository) %> |
 <%= link_to 'Back', repositories_path %>

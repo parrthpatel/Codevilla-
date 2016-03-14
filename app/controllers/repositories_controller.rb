@@ -2,13 +2,19 @@ class RepositoriesController < ApplicationController
   before_action :set_repository, only: [:show, :edit, :update, :destroy]
 
   def index
-    @repositories = Repository.all
+    if params[:tag]
+      @articles = Repository.tagged_with(params[:tag])
+    else
+      @repositories = Repository.all
+    end
     render layout: "authen"
   end
+
 
   def show
     render layout: "authen"
   end
+
 
   def new
     @repository = Repository.new
@@ -55,13 +61,14 @@ class RepositoriesController < ApplicationController
     render layout: "authen"
   end
 
+
   def edit
     render layout: "authen"
   end
 
+
   def create
     @repository = Repository.new(repository_params)
-
     respond_to do |format|
       if @repository.save
         format.html { redirect_to @repository, notice: 'Repository was successfully created.' }
@@ -72,6 +79,7 @@ class RepositoriesController < ApplicationController
       end
     end
   end
+
 
   def update
     respond_to do |format|
@@ -85,6 +93,7 @@ class RepositoriesController < ApplicationController
     end
   end
 
+
   def destroy
     @repository.destroy
     respond_to do |format|
@@ -93,6 +102,7 @@ class RepositoriesController < ApplicationController
     end
   end
 
+
   private
 
     def set_repository
@@ -100,6 +110,6 @@ class RepositoriesController < ApplicationController
     end
 
     def repository_params
-      params.require(:repository).permit(:repo_id, :name, :full_name, :github_profile_nickname, :html_url, :description, :fork, :crated_at, :git_url, :ssh_url, :clone_url, :watchers_count, :language, :has_issues, :has_downloads, :has_wiki, :forks_count, :open_issues_count, :open_issues, :watchers, :foo_param, :codezip)
+      params.require(:repository).permit(:repo_id, :name, :full_name, :github_profile_nickname, :html_url, :description, :fork, :crated_at, :git_url, :ssh_url, :clone_url, :watchers_count, :language, :has_issues, :has_downloads, :has_wiki, :forks_count, :open_issues_count, :open_issues, :watchers, :foo_param, :codezip, :tag_list)
     end
 end
