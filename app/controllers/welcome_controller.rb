@@ -16,6 +16,7 @@ class WelcomeController < ApplicationController
   end
   
   def profile
+    @repositories = Repository.where(github_profile_nickname: current_user.github_profile.nickname)
   	render layout: "authen"
   end
   
@@ -28,4 +29,11 @@ class WelcomeController < ApplicationController
   def register
   end
 
+  def mypocs
+    @repositories = Repository.where(github_profile_nickname: current_user.github_profile.nickname)
+    render layout: "authen"
+  end
+  def buy_poc
+      redirect_to @repositories.paypal_url(show_repositery_path())
+  end
 end

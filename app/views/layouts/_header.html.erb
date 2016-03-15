@@ -108,7 +108,8 @@
 
                 <li>
                     
-                        <i class="fa fa-sign-out"><%= link_to 'Log out', destroy_user_session_path, method: :delete %></i>
+                        <%= link_to destroy_user_session_path, method: :delete  do %><i class="fa fa-sign-out"> Log out</i>
+                        <% end %>
                 </li>
             </ul>
             

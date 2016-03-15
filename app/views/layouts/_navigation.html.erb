@@ -2,13 +2,12 @@
         <div class="sidebar-collapse">
             <ul class="nav metismenu" id="side-menu">
                 <li class="nav-header">
-                    <div class="dropdown profile-element"> <span>
-                    <img src="<%= current_user.github_profile.image %>" width="80px", class="img-circle", alt="profile picture">
-                           
-                            
-                             </span>
+                    <div class="dropdown profile-element">
+                      <span>
+                        <img src="<%= current_user.github_profile.image %>" width="80px", class="img-circle", alt="profile picture">
+                      </span>
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                            <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold"><%= current_user.github_profile.name %></strong>
+                            <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold"><%= current_user.github_profile.nickname %></strong>
                              </span> <span class="text-muted text-xs block"><%= current_user.github_profile.location %><b class="caret"></b></span> </span> </a>
                         <ul class="dropdown-menu animated fadeInRight m-t-xs">
                             <li><%= link_to 'Home', root_path %></li>
@@ -22,40 +21,33 @@
                          Code-<i class="fa fa-home"></i>
                     </div>
                 </li>
+                <li><%= link_to root_path do %>
+                      <i class="fa fa-th-large">  <span class="nav-label">Dashboard</span></i>
+                      <% end %>
+                      </li>
+
+                
                 <li>
-                    <a href="index.html"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboards</span> <span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level collapse">
-                        <li><a href="index.html">Dashboard v.1</a></li>
-                        <li><a href="dashboard_2.html">Dashboard v.2</a></li>
-                        <li><a href="dashboard_3.html">Dashboard v.3</a></li>
-                        <li><a href="dashboard_4_1.html">Dashboard v.4</a></li>
-                        <li><a href="dashboard_5.html">Dashboard v.5 <span class="label label-primary pull-right">NEW</span></a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="layouts.html"><i class="fa fa-diamond"></i> <span class="nav-label">Layouts</span></a>
-                </li>
-                <li>
-                    <a href="#"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">Graphs</span><span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level collapse">
-                        <li><a href="graph_flot.html">Flot Charts</a></li>
-                        <li><a href="graph_morris.html">Morris.js Charts</a></li>
-                        <li><a href="graph_rickshaw.html">Rickshaw Charts</a></li>
-                        <li><a href="graph_chartjs.html">Chart.js</a></li>
-                        <li><a href="graph_chartist.html">Chartist</a></li>
-                        <li><a href="c3.html">c3 charts</a></li>
-                        <li><a href="graph_peity.html">Peity Charts</a></li>
-                        <li><a href="graph_sparkline.html">Sparkline Charts</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="mailbox.html"><i class="fa fa-envelope"></i> <span class="nav-label">Mailbox </span><span class="label label-warning pull-right">16/24</span></a>
-                    <ul class="nav nav-second-level collapse">
-                        <li><a href="mailbox.html">Inbox</a></li>
-                        <li><a href="mail_detail.html">Email view</a></li>
-                        <li><a href="mail_compose.html">Compose email</a></li>
-                        <li><a href="email_template.html">Email templates</a></li>
-                    </ul>
+                  <%= link_to  do %>
+                      <i class="fa fa-file-archive-o"><span class="nav-label"> POC</span></i><span class="fa arrow"></span>
+                  <% end %>
+                  <ul class="nav nav-second-level collapse">
+                    <li>
+                      <%= link_to new_repository_path do %>
+                          <i class="fa fa-file-archive-o"><span class="nav-label"> ADD POD</span></i>
+                      <% end %>
+                    </li>
+                    <li>
+                      <%= link_to welcome_mypocs_path do %>
+                          <i class="fa fa-file-archive-o"></i> <span class="nav-label"> MY POC</span>
+                      <% end %>
+                    </li>
+                    <li>
+                      <%= link_to repositories_path do %>
+                          <i class="fa fa-file-archive-o"><span class="nav-label"> ALL POC</span></i>
+                      <% end %>
+                    </li>
+                  </ul>
                 </li>
                 <li>
                     <a href="metrics.html"><i class="fa fa-pie-chart"></i> <span class="nav-label">Metrics</span>  </a>
@@ -64,7 +56,7 @@
                     <a href="widgets.html"><i class="fa fa-flask"></i> <span class="nav-label">Widgets</span></a>
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-edit"></i> <span class="nav-label">Forms</span><span class="fa arrow"></span></a>
+                    <a href="#"><i class="fa fa-edit"></i> <span class="nav-label">Forms</span></a>
                     <ul class="nav nav-second-level collapse">
                         <li><a href="form_basic.html">Basic form</a></li>
                         <li><a href="form_advanced.html">Advanced Plugins</a></li>
@@ -223,6 +215,5 @@
                     <a href="package.html"><i class="fa fa-database"></i> <span class="nav-label">Package</span></a>
                 </li>
             </ul>
-
         </div>
     </nav>

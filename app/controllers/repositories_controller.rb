@@ -3,11 +3,17 @@ class RepositoriesController < ApplicationController
 
   def index
     if params[:tag]
-      @articles = Repository.tagged_with(params[:tag])
+      @repositories  = Repository.tagged_with(params[:tag])
     else
       @repositories = Repository.all
     end
     render layout: "authen"
+  end
+
+  def mypocs
+    @repositories = Repository.find_by(github_profile_nickname: current_user.github_profile.nickname)
+    render layout: "authen"
+    byebug
   end
 
 

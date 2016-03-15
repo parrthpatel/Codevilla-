@@ -56,8 +56,48 @@
                     </div>
                 </div>
             </div>
+             <div class="col-md-8">
+                    <div class="ibox float-e-margins">
+                        <div class="ibox-title">
+                            <h5>My Pocs</h5>
+                            <div class="ibox-tools">
+                                <a class="collapse-link">
+                                    <i class="fa fa-chevron-up"></i>
+                                </a>
+                            
+                                <a class="close-link">
+                                    <i class="fa fa-times"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="ibox-content">
+
+                            <div>
+                                <div class="feed-activity-list">
+                                    <% @repositories.each do |repository| %>
+                                    <div class="feed-element">
+                                        <h3><strong><%= repository.name %></strong></h3>
+                                        <div class="media-body ">
+                                            <small class="pull-right text-navy"><%= repository.language %></small>
+                                            <p><%= repository.description %></p>
+                                            <div class="actions">
+                                            <%= link_to repository, class: 'btn btn-xs btn-white' do %>
+                                            <i class = 'fa fa-view'>Show</i>
+                                            <% end %>
+                                            <%= link_to edit_repository_path(repository.id), class: 'btn btn-xs btn-white' do %>
+                                            <i class = 'fa fa-view'>edit</i>
+                                            <% end %> 
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <% end %>
+                            </div>
+
                
         </div>
+        </div>
+        </div>
 
+</div>
 </div>
 </div>

@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<h1 class="text-center">Listing Repositories</h1>
+
+<% @repositories.each do |repository| %>
+    <div class="col-lg-3">
+      <div class="contact-box center-version">
+
+        <a href="repositories">
+
+
+          <h3 class="m-b-xs"><strong><%= repository.name %></strong></h3>
+
+          <div class="font-bold"><%= repository.description %></div>
+          <p class="m-t-md">
+            <strong>Tags</strong><br>
+
+          </p>
+
+        </a>
+        <div class="contact-box-footer">
+          <%= link_to "<i class = 'fa fa-view'>Show".html_safe, repository, class: 'btn btn-primary btn-large' %>
+        </div>
+      </div>
+    </div>
+<% end %>
