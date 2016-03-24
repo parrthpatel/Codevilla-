@@ -103,7 +103,8 @@ class RepositoriesController < ApplicationController
   def destroy
     @repository.destroy
     respond_to do |format|
-      format.html { redirect_to repositories_url, notice: 'Repository was successfully destroyed.' }
+      format.html { redirect_to welcome_mypocs_path, notice: 'Repository was successfully destroyed.' }
+      #format.html { redirect_to repositories_url, notice: 'Repository was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

@@ -19,7 +19,9 @@
 
         </a>
           <div class="contact-box-footer">
-                 <%= link_to "<i class = 'fa fa-view'>Show".html_safe, repository, class: 'btn btn-default' %>
+                 <%= link_to repository, class: 'btn btn-default' do %>
+                 <i class = 'fa fa-view'>Show</i>
+                 <% end %>
           </div>
       </div>
     </div>

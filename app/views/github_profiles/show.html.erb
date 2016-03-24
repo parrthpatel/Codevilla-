@@ -1,9 +1,8 @@
 <div class="wrapper wrapper-content animated fadeInRight">
-
                 <div class="col-lg-12">
                     <div class="ibox float-e-margins">
                         <div class="ibox-title">
-                            <h2>Your Github Profile Details</h2>
+                            <h5>Your Github Profile Details</h5>
                             <div class="ibox-tools">
                                 <a class="collapse-link">
                                     <i class="fa fa-chevron-up"></i>
@@ -16,81 +15,65 @@
 
 <div class="ibox-content">
 <p id="notice"><%= notice %></p>
+<table class="table table-hover">
+<tr>
+  <td><strong>Nickname:</strong></td>
+  <td><%= @github_profile.nickname %></td>
+  </tr>
+<tr>
+  <td><strong>Email:</strong></td>
+  <td><%= @github_profile.email %></td>
+</tr>
+<tr>
+  <td><strong>Name:</strong></td>
+  <td><%= @github_profile.name %></tr></td>
+</tr>
+<tr>
+  <td><strong>Location:</strong></td>
+  <td><%= @github_profile.location %></td>
+</tr>
+<tr>
+  <td><strong>Public repo:</strong></td>
+  <td><%= @github_profile.public_repo %></td>
+</tr>
+<tr>
+  <td><strong>Public gists:</strong></td>
+  <td><%= @github_profile.public_gists %></td>
+</tr>
+<tr>
+  <td><strong>Followers:</strong></td>
+  <td><%= @github_profile.followers %></td>
+</tr>
+<tr>
+  <td><strong>Following:</strong></td>
+  <td><%= @github_profile.following %></td>
+</tr>
+<tr>
+  <td><strong>Member since:</strong></td>
+  <td><%= @github_profile.member_since %></td>
+</tr>
+<tr>
+  <td><strong>Private repos:</strong></td>
+  <td><%= @github_profile.private_repos %></td>
+</tr>
+<tr>
+  <td><strong>Github link:</strong></td>
+  <td><%= @github_profile.github_link %></td>
+</tr>
+<tr>
+  <td><strong>Blog link:</strong></td>
+  <td><%= @github_profile.blog_link %></td>
+</tr>
+<tr>
+  <td><strong>Bio:</strong></td>
+  <td><%= @github_profile.bio %></td>
+</tr>
 
-<p>
-  <strong>User:</strong>
-  <%= @github_profile.user_id %>
-</p>
-
-<p>
-  <strong>Nickname:</strong>
-  <%= @github_profile.nickname %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @github_profile.email %>
-</p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @github_profile.name %>
-</p>
-
-
-<p>
-  <strong>Location:</strong>
-  <%= @github_profile.location %>
-</p>
-
-<p>
-  <strong>Public repo:</strong>
-  <%= @github_profile.public_repo %>
-</p>
-
-<p>
-  <strong>Public gists:</strong>
-  <%= @github_profile.public_gists %>
-</p>
-
-<p>
-  <strong>Followers:</strong>
-  <%= @github_profile.followers %>
-</p>
-
-<p>
-  <strong>Following:</strong>
-  <%= @github_profile.following %>
-</p>
-
-<p>
-  <strong>Member since:</strong>
-  <%= @github_profile.member_since %>
-</p>
-
-<p>
-  <strong>Private repos:</strong>
-  <%= @github_profile.private_repos %>
-</p>
-
-<p>
-  <strong>Github link:</strong>
-  <%= @github_profile.github_link %>
-</p>
-
-<p>
-  <strong>Blog link:</strong>
-  <%= @github_profile.blog_link %>
-</p>
-
-<p>
-  <strong>Bio:</strong>
-  <%= @github_profile.bio %>
-</p>
-
-
-<%= link_to 'Edit', edit_github_profile_path(@github_profile) %> |
-<%= link_to 'Back', welcome_profile_path %>
+</table>
+<hr>
+<%= link_to 'Edit', edit_github_profile_path(@github_profile), class: 'btn btn-xs btn-white' %>
+<%= link_to 'Back', welcome_profile_path, class: 'btn btn-xs btn-white' %>
 </div>
-</div></div>
+</div>
+</div>
 </div>

@@ -935,7 +935,9 @@ fieldset[disabled] .btn-white:active,
 fieldset[disabled] .btn-white.active {
   color: #cacaca;
 }
-.form-control,
+.form-control{
+  margin-bottom: 25px;
+}
 .form-control:focus,
 .has-error .form-control:focus,
 .has-success .form-control:focus,

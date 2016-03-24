@@ -40,18 +40,7 @@
                                         <h5><strong> <%= current_user.github_profile.followers %></strong> Followers</h5>
                                     </div>
                                 </div>
-                                <div class="user-button">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <button type="button" class="btn btn-primary btn-sm btn-block"><i class="fa fa-envelope"></i> Send Message</button>
-                                        </div>
-                                        <div class="col-md-6">
-                                       
-                                            <button type="button" class="btn btn-default btn-sm btn-block"><i class="fa fa-coffee"></i> Buy a coffee</button>
-                                        </div>
-                                    </div>
-
-                                </div>
+                                
                             </div>
                     </div>
                 </div>
@@ -82,11 +71,14 @@
                                             <p><%= repository.description %></p>
                                             <div class="actions">
                                             <%= link_to repository, class: 'btn btn-xs btn-white' do %>
-                                            <i class = 'fa fa-view'>Show</i>
+                                            <i class = 'fa fa-eye'> Show</i>
                                             <% end %>
                                             <%= link_to edit_repository_path(repository.id), class: 'btn btn-xs btn-white' do %>
-                                            <i class = 'fa fa-view'>edit</i>
-                                            <% end %> 
+                                            <i class = 'fa fa-pencil'> edit</i>
+                                            <% end %>
+                                              <%= link_to repository, method: :delete, data: { confirm: 'Are you sure?' }, class:'btn btn-xs btn-danger' do %>
+                                              <i class = 'fa fa-trash-o'> Remove</i>
+                                                  <% end %>
                                             </div>
                                         </div>
                                     </div>
