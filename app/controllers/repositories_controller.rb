@@ -141,6 +141,6 @@ class RepositoriesController < ApplicationController
     end
 
     def repository_params
-      params.require(:repository).permit(:repo_id, :name, :full_name, :github_profile_nickname, :html_url, :description, :fork, :crated_at, :git_url, :ssh_url, :clone_url, :watchers_count, :language, :has_issues, :has_downloads, :has_wiki, :forks_count, :open_issues_count, :open_issues, :watchers, :foo_param, :codezip, :tag_list, :amount)
+      params.require(:repository).permit(:repo_id, :name, :full_name, :github_profile_nickname, :html_url, :description, :fork, :crated_at, :git_url, :ssh_url, :clone_url, :watchers_count, :language, :has_issues, :has_downloads, :has_wiki, :forks_count, :open_issues_count, :open_issues, :watchers, :foo_param, :codezip, :tag_list, :amount, :all_categori)
     end
 end

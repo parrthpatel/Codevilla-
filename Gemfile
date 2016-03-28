@@ -16,6 +16,7 @@ gem 'omniauth-github'
 gem 'sweet-alert'
 gem 'carrierwave'
 gem 'acts-as-taggable-on', '~> 3.4'
+gem 'foundation-rails'
 gem 'faker'
 gem 'sdoc', '~> 0.4.0', group: :doc
 

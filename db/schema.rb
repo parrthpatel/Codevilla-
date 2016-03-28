@@ -11,10 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160328072042) do
+ActiveRecord::Schema.define(version: 20160328100256) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "categoris", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "categorises", force: :cascade do |t|
+    t.integer  "repository_id"
+    t.integer  "categori_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "categorises", ["categori_id"], name: "index_categorises_on_categori_id", using: :btree
+  add_index "categorises", ["repository_id"], name: "index_categorises_on_repository_id", using: :btree
 
   create_table "github_profiles", force: :cascade do |t|
     t.integer  "user_id"
@@ -126,5 +142,7 @@ ActiveRecord::Schema.define(version: 20160328072042) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   add_index "users", ["unlock_token"], name: "index_users_on_unlock_token", unique: true, using: :btree
 
+  add_foreign_key "categorises", "categoris"
+  add_foreign_key "categorises", "repositories"
   add_foreign_key "payments", "repositories"
 end
