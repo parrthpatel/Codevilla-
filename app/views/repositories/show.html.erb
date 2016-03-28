@@ -1,112 +1,119 @@
+<div class="wrapper wrapper-content animated fadeInRight">
+                <div class="col-lg-12">
+                    <div class="ibox float-e-margins">
+                        <div class="ibox-title">
+                            <h5>Your Github Profile Details</h5>
+                            <div class="ibox-tools">
+                                <a class="collapse-link">
+                                    <i class="fa fa-chevron-up"></i>
+                                </a>
+                                <a class="close-link">
+                                    <i class="fa fa-times"></i>
+                                </a>
+                            </div>
+                        </div>
+
+<div class="ibox-content">
 <p id="notice"><%= notice %></p>
+<table class="table table-hover">
+<tr>
+  <td><strong>Repo:</strong></td>
+  <td><%= @repository.repo_id %></td>
+</tr>
+<tr>
+  <td><strong>Name:</strong></td>
+  <td><%= @repository.name %></td>
+</tr>
+<tr>
+  <td><strong>Full name:</strong></td>
+  <td><%= @repository.full_name %></td>
+</tr>
+<tr>
+  <td><strong>Github profile nickname:</strong></td>
+  <td><%= @repository.github_profile_nickname %></td>
+</tr>
+<tr>
+  <td><strong>Html url:</strong></td>
+  <td><%= @repository.html_url %></td>
+</tr>
+<tr>
+  <td><strong>Description:</strong></td>
+  <td><%= @repository.description %></td>
+</tr>
+<tr>
+  <td><strong>Fork:</strong></td>
+  <td><%= @repository.fork %></td>
+</tr>
+<tr>
+  <td><strong>Crated at:</strong></td>
+  <td><%= @repository.crated_at %></td>
+</tr>
+  <td><strong>Git url:</strong></td>
+  <td><%= @repository.git_url %></td>
+</tr>
+<tr>
+  <td><strong>Ssh url:</strong></td>
+  <td><%= @repository.ssh_url %></td>
+</tr>
+<tr>
+  <td><strong>Clone url:</strong></td>
+  <td><%= @repository.clone_url %></td>
+</tr>
+<tr>
+  <td><strong>Watchers count:</strong></td>
+  <td><%= @repository.watchers_count %></td>
+</tr>
+<tr>
+  <td><strong>Language:</strong></td>
+  <td><%= @repository.language %></td>
+</tr>
+<tr>
+  <td><strong>Has issues:</strong></td>
+  <td><%= @repository.has_issues %></td>
+</tr>
+<tr>
+  <td><strong>Has downloads:</strong></td>
+  <td><%= @repository.has_downloads %></td>
+</tr>
+<tr>
+  <td><strong>Has wiki:</strong></td>
+  <td><%= @repository.has_wiki %></td>
+</tr>
+<tr>
+  <td><strong>Forks count:</strong></td>
+  <td><%= @repository.forks_count %></td>
+</tr>
+<tr>
+  <td><strong>Open issues count:</strong></td>
+  <td><%= @repository.open_issues_count %></td>
+</tr>
+<tr>
+  <td><strong>Open issues:</strong></td>
+  <td><%= @repository.open_issues %></td>
+</tr>
+<tr>
+  <td><strong>Watchers:</strong></td>
+  <td><%= @repository.watchers %></td>
+</tr>
+<tr>
+   <td><strong>Code File:</strong></td>
+   <td><% link_to 'Download', @repository.codezip.url, class: 'btn btn-xs btn-primary' %></td>
+<!-- <td><%= @repository.codezip %></td>  -->
+</tr>
+<tr>
+  <td><strong>Purchase Amount:</strong></td>
+  <td><%= @repository.amount %></td>
+</tr>
+<tr>
+  <td>Tags:</td>
+  <td><%= raw @repository.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></td>
+</tr>
+</table>
 
-<p>
-  <strong>Repo:</strong>
-  <%= @repository.repo_id %>
-</p>
+<%= link_to 'Edit', edit_repository_path(@repository), class: 'btn btn-primary' %>
+<%= link_to 'Back', repositories_path, class: 'btn btn-white' %>
+</div>
+</div>
+</div>
+</div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @repository.name %>
-</p>
-
-<p>
-  <strong>Full name:</strong>
-  <%= @repository.full_name %>
-</p>
-
-<p>
-  <strong>Github profile nickname:</strong>
-  <%= @repository.github_profile_nickname %>
-</p>
-
-<p>
-  <strong>Html url:</strong>
-  <%= @repository.html_url %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @repository.description %>
-</p>
-
-<p>
-  <strong>Fork:</strong>
-  <%= @repository.fork %>
-</p>
-
-<p>
-  <strong>Crated at:</strong>
-  <%= @repository.crated_at %>
-</p>
-
-<p>
-  <strong>Git url:</strong>
-  <%= @repository.git_url %>
-</p>
-
-<p>
-  <strong>Ssh url:</strong>
-  <%= @repository.ssh_url %>
-</p>
-
-<p>
-  <strong>Clone url:</strong>
-  <%= @repository.clone_url %>
-</p>
-
-<p>
-  <strong>Watchers count:</strong>
-  <%= @repository.watchers_count %>
-</p>
-
-<p>
-  <strong>Language:</strong>
-  <%= @repository.language %>
-</p>
-
-<p>
-  <strong>Has issues:</strong>
-  <%= @repository.has_issues %>
-</p>
-
-<p>
-  <strong>Has downloads:</strong>
-  <%= @repository.has_downloads %>
-</p>
-
-<p>
-  <strong>Has wiki:</strong>
-  <%= @repository.has_wiki %>
-</p>
-
-<p>
-  <strong>Forks count:</strong>
-  <%= @repository.forks_count %>
-</p>
-
-<p>
-  <strong>Open issues count:</strong>
-  <%= @repository.open_issues_count %>
-</p>
-
-<p>
-  <strong>Open issues:</strong>
-  <%= @repository.open_issues %>
-</p>
-
-<p>
-  <strong>Watchers:</strong>
-  <%= @repository.watchers %>
-</p>
-
-<p>    
-<strong>Code File:</strong>
-<%= @repository.codezip %>
-  </p>
-  <p>
-Tags: <%= raw @repository.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
-</p>
-
-<%= link_to 'Edit', edit_repository_path(@repository) %> |
-<%= link_to 'Back', repositories_path %>

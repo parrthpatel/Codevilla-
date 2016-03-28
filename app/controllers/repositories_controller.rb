@@ -1,5 +1,6 @@
 class RepositoriesController < ApplicationController
-  before_action :set_repository, only: [:show, :edit, :update, :destroy]
+  before_action :set_repository, only: [:show, :edit, :update, :destroy, :purches]
+  protect_from_forgery except: [:hook]
 
   def index
     if params[:tag]
@@ -8,6 +9,29 @@ class RepositoriesController < ApplicationController
       @repositories = Repository.all
     end
     render layout: "authen"
+  end
+
+  def purches
+    redirect_to @repository.paypal_url(repository_path(@repository)) 
+  end
+
+  def hook
+    params.permit! # Permit all Paypal input params
+    status = params[:payment_status]
+    if status == "Completed"
+       Payment.create(repositery_id: params[:item_number],
+                        user_id: current_user.github_profile.id,
+                        notification_params: params,
+                        status: status,
+                        transaction_id: params[:txt_id],
+                          purchased_at: Time.now+0530)
+
+    end
+    render nothing: true
+  end
+
+  def show_purchase
+    render 'show'
   end
 
   def mypocs
@@ -117,6 +141,6 @@ class RepositoriesController < ApplicationController
     end
 
     def repository_params
-      params.require(:repository).permit(:repo_id, :name, :full_name, :github_profile_nickname, :html_url, :description, :fork, :crated_at, :git_url, :ssh_url, :clone_url, :watchers_count, :language, :has_issues, :has_downloads, :has_wiki, :forks_count, :open_issues_count, :open_issues, :watchers, :foo_param, :codezip, :tag_list)
+      params.require(:repository).permit(:repo_id, :name, :full_name, :github_profile_nickname, :html_url, :description, :fork, :crated_at, :git_url, :ssh_url, :clone_url, :watchers_count, :language, :has_issues, :has_downloads, :has_wiki, :forks_count, :open_issues_count, :open_issues, :watchers, :foo_param, :codezip, :tag_list, :amount)
     end
 end

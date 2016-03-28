@@ -1,8 +1,17 @@
 Rails.application.routes.draw do
-  resources :repositories
+  resources :repositories do
+    collection do
+      get 'purches/:id' => 'repositories#purches', as: :repositories
+      get "/repositories/:id" => "repositories#show"
+      post "/repositories/hook" => "repositories#hook"
+    end
+  end
+
   resources :github_profiles
   devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
+  
   get 'welcome/index'
+  
   get 'welcome/form'
   root 'welcome#index'
   get 'welcome/table'
@@ -12,8 +21,7 @@ Rails.application.routes.draw do
   get 'welcome/register'
   get 'welcome/mypocs'
   get 'welcome/buy_poc'
-  get 'tags/:tag', to: 'repositories#index', as: :tag 
-  
+  get 'tags/:tag', to: 'repositories#index', as: :tag
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your  routes lay out with "rake routes".
 

@@ -35,10 +35,9 @@ Rails.application.configure do
   # Checks for improperly declared sprockets dependencies.
   # Raises helpful error messages.
   config.assets.raise_runtime_errors = true
-=begin
-  paypal_host: https://www.sandbox.paypal.com
-  app_host: http://localhost:3000
-=end
+
+  
+
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
