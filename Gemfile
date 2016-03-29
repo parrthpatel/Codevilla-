@@ -18,7 +18,7 @@ gem 'carrierwave'
 gem 'acts-as-taggable-on', '~> 3.4'
 gem 'foundation-rails'
 gem 'faker'
-gem "pg_search"
+gem 'pg_search'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 group :development, :test do
