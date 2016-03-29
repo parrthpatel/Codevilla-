@@ -2,3 +2,4 @@
 
 require ::File.expand_path('../config/environment', __FILE__)
 run Rails.application
+web: bundle exec puma -C config/puma.rb
