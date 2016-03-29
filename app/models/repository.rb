@@ -9,7 +9,7 @@ class Repository < ActiveRecord::Base
 
     def all_categori=(names)
       self.categoris = names.split(",").map do |name|
-        Tag.where(name: name.strip).first_or_create!
+        Categori.where(name: name.strip).first_or_create!
       end
     end
 

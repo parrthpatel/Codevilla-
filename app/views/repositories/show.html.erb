@@ -108,6 +108,10 @@
   <td>Tags:</td>
   <td><%= raw @repository.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></td>
 </tr>
+<tr>
+  <td>Categories:</td>
+  <td><%= raw @repository.all_categori %></td>
+</tr>
 </table>
 
 <%= link_to 'Edit', edit_repository_path(@repository), class: 'btn btn-primary' %>

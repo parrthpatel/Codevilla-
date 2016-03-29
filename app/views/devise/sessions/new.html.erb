@@ -1,12 +1,14 @@
-<center>	
+<center>	<br />
+<br /><br><br><br><br>
                 <h1 class="logo-name"><i class="fa fa-home"></i></h1>                
                 <h1>CodeVilla</h3>
-				<p>The Place Where Code Lives</p>	                
+				<p>The Place Where Code Lives</p><br>	                
             
   
   <%- resource_class.omniauth_providers.each do |provider| %>
-  	<h1 class="logo-name"><i class="fa fa-github" ></i></h1>
-    <%= link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider), {class: "btn btn-primary btn-lg"} %><br />
+    <%= link_to omniauth_authorize_path(resource_name, provider), class: "btn btn-lg btn-primary" do %>
+    	Sign in with Github <i class = "fa fa-github"></i> 
+    	<% end %>
   <% end %>
   
   </center>

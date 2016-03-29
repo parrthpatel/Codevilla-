@@ -1,7 +1,9 @@
 class RepositoriesController < ApplicationController
-  before_action :set_repository, only: [:show, :edit, :update, :destroy, :purches]
+  before_action :authenticate_user!
+  before_action :set_repository, only: [:show, :edit, :update, :destroy, :purches, :show_purchase]
   protect_from_forgery except: [:hook]
-
+  before_action :hook, only: [:show_purchase]
+  skip_before_filter :verify_authenticity_token, :only => [:show_purchased]
   def index
     if params[:tag]
       @repositories  = Repository.tagged_with(params[:tag])

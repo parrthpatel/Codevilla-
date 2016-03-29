@@ -2,7 +2,8 @@ Rails.application.routes.draw do
   resources :repositories do
     collection do
       get 'purches/:id' => 'repositories#purches', as: :repositories
-      get "/repositories/:id" => "repositories#show"
+      post "/repositories/:id" => "repositories#show"
+      post "/:id" => "repositories#show_purchase", as: :repository
       post "/repositories/hook" => "repositories#hook"
     end
   end
