@@ -4,6 +4,7 @@ class WelcomeController < ApplicationController
   def index
     client = Octokit::Client.new(:access_token => current_user.github_profile.access_token)
     @repositories = client.repos
+    @pocs = @repositories.paginate(params[:page], 8)
     render layout: "authen"
   end
 
@@ -31,6 +32,7 @@ class WelcomeController < ApplicationController
 
   def mypocs
     @repositories = Repository.where(github_profile_nickname: current_user.github_profile.nickname)
+    @repos = @repositories.paginate(:page => params[:page], :per_page => 8)
     render layout: "authen"
   end
   def buy_poc

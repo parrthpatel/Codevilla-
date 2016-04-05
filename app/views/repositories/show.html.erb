@@ -97,7 +97,8 @@
 </tr>
 <tr>
    <td><strong>Code File:</strong></td>
-   <td><% link_to 'Download', @repository.codezip.url, class: 'btn btn-xs btn-primary' %></td>
+   <td><%= @repository.codezip.url %> </td>
+   <td><%= link_to 'Edit', @repository.codezip.url, class: 'btn btn-primary' %></td>
 <!-- <td><%= @repository.codezip %></td>  -->
 </tr>
 <tr>

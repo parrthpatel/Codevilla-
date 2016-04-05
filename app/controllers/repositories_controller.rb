@@ -7,8 +7,10 @@ class RepositoriesController < ApplicationController
   def index
     if params[:tag]
       @repositories  = Repository.tagged_with(params[:tag])
+      @repos = @repositories.paginate(:page => params[:page], :per_page => 20)
     else
       @repositories = Repository.all
+      @repos = @repositories.paginate(:page => params[:page], :per_page => 20)
     end
     render layout: "authen"
   end

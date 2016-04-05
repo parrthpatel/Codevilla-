@@ -1,17 +1,17 @@
-<p id="notice"><%= notice %></p>
-
-<h1 class="text-center">Listing Repositories</h1>
-
-<% @repositories.each do |repository| %>
+<h1 class="text-center">My Repositories</h1>
+<% count=0%>
+<% @repos.each do |repository| %>
+<% count +=1 %>
+         <%= open_row count %>
     <div class="col-lg-3">
       <div class="contact-box center-version">
 
         <a href="repositories">
 
 
-          <h3 class="m-b-xs"><strong><%= repository.name %></strong></h3>
+          <h3 class="m-b-xs"><strong><%= truncate(repository.name, length: 23) %></strong></h3>
 
-          <div class="font-bold"><%= repository.description %></div>
+          <div class="font-bold"><%= truncate(repository.description, length: 45) %></div>
           <p class="m-t-md">
             <strong>Tags</strong><br>
 
@@ -28,4 +28,8 @@
         </div>
       </div>
     </div>
+    <%= close_row count %>
 <% end %>
+
+<%= will_paginate @repos, class: 'apple_pagination' %>
+<h1> 1</h1>
