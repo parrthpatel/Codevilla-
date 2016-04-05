@@ -4,10 +4,11 @@ class Repository < ActiveRecord::Base
 	mount_uploader :codezip, CodezipUploader
 	acts_as_taggable_on :tags
   serialize :notification_params, Hash
-  has_many :categorises
-  has_many :categoris, through: :categorises
+  #has_many :categorises
+  h#as_many :categoris, through: :categorises
   include PgSearch
-    def all_categori=(names)
+=begin
+ def all_categori=(names)
       self.categoris = names.split(",").map do |name|
         Categori.where(name: name.strip).first_or_create!
       end
@@ -16,6 +17,7 @@ class Repository < ActiveRecord::Base
     def all_categori
       self.categoris.map(&:name).join(", ")
     end
+=end
 
 
   if(Payment.count == 0)

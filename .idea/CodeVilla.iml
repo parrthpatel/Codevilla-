@@ -184,7 +184,6 @@
     <orderEntry type="library" scope="PROVIDED" name="rails_layout (v1.0.29, RVM: ruby-2.1.6) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="railties (v4.2.5, RVM: ruby-2.1.6) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rdoc (v4.2.2, RVM: ruby-2.1.6) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="sass (v3.4.21, RVM: ruby-2.1.6) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sass-rails (v5.0.4, RVM: ruby-2.1.6) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sawyer (v0.6.0, RVM: ruby-2.1.6) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sdoc (v0.4.1, RVM: ruby-2.1.6) [gem]" level="application" />
