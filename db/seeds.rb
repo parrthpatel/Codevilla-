@@ -14,3 +14,17 @@
   				html_url: html_url,
   				clone_url: html_url)
 end
+
+Category.create [{:name => 'E-Commerce'}, 
+				 {:name => 'Game-2D'}, 
+				 {:name => 'Game-3D'}, 
+				 {:name => 'Template'}, 
+				 {:name => 'Scripts'}, 
+				 {:name => 'MVC'}, 
+				 {:name => 'MTV'}, 
+				 {:name => 'Mobile Application'}, 
+				 {:name => 'Stand-Alone App'}, 
+				 {:name => 'Driver'}, 
+				 {:name => 'Data-Analysis'}, 
+				 {:name => 'Data Storage'}, 
+				 {:name => 'Cloude'} ]

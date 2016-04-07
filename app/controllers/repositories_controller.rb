@@ -4,7 +4,10 @@ class RepositoriesController < ApplicationController
   protect_from_forgery except: [:hook]
   before_action :hook, only: [:show_purchase]
   skip_before_filter :verify_authenticity_token, :only => [:show_purchased]
+  
+
   def index
+    
     if params[:tag]
       @repositories  = Repository.tagged_with(params[:tag])
       @repos = @repositories.paginate(:page => params[:page], :per_page => 20)
@@ -13,13 +16,19 @@ class RepositoriesController < ApplicationController
       @repos = @repositories.paginate(:page => params[:page], :per_page => 20)
     end
     render layout: "authen"
+  
   end
 
+  
   def purches
+  
     redirect_to @repository.paypal_url(repository_path(@repository)) 
+  
   end
 
+  
   def hook
+   
     params.permit! # Permit all Paypal input params
     status = params[:payment_status]
     if status == "Completed"
@@ -32,26 +41,38 @@ class RepositoriesController < ApplicationController
 
     end
     render nothing: true
+  
   end
 
+  
   def show_purchase
+  
     render 'show'
+  
   end
+
+  
 
   def mypocs
+  
     @repositories = Repository.find_by(github_profile_nickname: current_user.github_profile.nickname)
     render layout: "authen"
     byebug
+  
   end
 
 
   def show
+  
     render layout: "authen"
+  
   end
 
 
   def new
+  
     @repository = Repository.new
+    #@categories = Category.all
     @id = params[:id_param]
     @name = params[:name_param]
     @full_name = params[:fullname_param]
@@ -92,17 +113,32 @@ class RepositoriesController < ApplicationController
             >> repos = user.rels[:repos].get.data.select {|r| r[:id] == 36374 } # this id is grab
             >> repos.map{|item| item['full_name']}
 =end
+
+    
     render layout: "authen"
   end
 
 
   def edit
+  
     render layout: "authen"
+  
   end
 
 
   def create
+  
     @repository = Repository.new(repository_params)
+    
+
+      #@categories = Category.find params[:repository].delete[:categories]
+      #@repository = Repository.new(params[:repository])
+      #@repository.categories = @categories
+      #params[:categories].each do |id|
+       # @repository.categories << Category.find(id)
+      #end 
+
+    
     respond_to do |format|
       if @repository.save
         format.html { redirect_to @repository, notice: 'Repository was successfully created.' }
@@ -112,10 +148,12 @@ class RepositoriesController < ApplicationController
         format.json { render json: @repository.errors, status: :unprocessable_entity }
       end
     end
+  
   end
 
 
   def update
+  
     respond_to do |format|
       if @repository.update(repository_params)
         format.html { redirect_to @repository, notice: 'Repository was successfully updated.' }
@@ -125,16 +163,19 @@ class RepositoriesController < ApplicationController
         format.json { render json: @repository.errors, status: :unprocessable_entity }
       end
     end
+  
   end
 
 
   def destroy
+  
     @repository.destroy
     respond_to do |format|
       format.html { redirect_to welcome_mypocs_path, notice: 'Repository was successfully destroyed.' }
       #format.html { redirect_to repositories_url, notice: 'Repository was successfully destroyed.' }
       format.json { head :no_content }
     end
+  
   end
 
 
@@ -145,6 +186,6 @@ class RepositoriesController < ApplicationController
     end
 
     def repository_params
-      params.require(:repository).permit(:repo_id, :name, :full_name, :github_profile_nickname, :html_url, :description, :fork, :crated_at, :git_url, :ssh_url, :clone_url, :watchers_count, :language, :has_issues, :has_downloads, :has_wiki, :forks_count, :open_issues_count, :open_issues, :watchers, :foo_param, :codezip, :tag_list, :amount, :all_categori)
+      params.require(:repository).permit(:repo_id, :name, :full_name, :github_profile_nickname, :html_url, :description, :fork, :crated_at, :git_url, :ssh_url, :clone_url, :watchers_count, :language, :has_issues, :has_downloads, :has_wiki, :forks_count, :open_issues_count, :open_issues, :watchers, :foo_param, :codezip, :tag_list, :amount, category_ids:[])
     end
 end

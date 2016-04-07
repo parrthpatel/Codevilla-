@@ -111,7 +111,7 @@
 </tr>
 <tr>
   <td>Categories:</td>
-  <td><%= raw @repository.all_categori %></td>
+  <td><td><%= @repository.categories.map(&:name).sort.join(", ") %></td></td>
 </tr>
 </table>
 
