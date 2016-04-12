@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :articles
+  resources :articles
+  resources :articles
+  resources :articles
   resources :repositories do
     collection do
       get 'purches/:id' => 'repositories#purches', as: :repositories
