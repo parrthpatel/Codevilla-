@@ -23,12 +23,12 @@
                 </li>
                 
                 <li><%= link_to root_path do %>
-                      <i class="fa fa-th-large">  <span class="nav-label">Dashboard</span></i>
+                      <i class="fa fa-th-large"> <span class="nav-label"> Dashboard</span></i>
                       <% end %>
                       </li>
                 <li>
                       <%= link_to new_repository_path do %>
-                          <i class="fa fa-file-archive-o"><span class="nav-label"> ADD POD</span></i>
+                          <i class="fa fa-file-archive-o"> <span class="nav-label"> ADD POD</span></i>
                       <% end %>
                     </li>
                     <li>
@@ -38,9 +38,18 @@
                     </li>
                     <li>
                       <%= link_to repositories_path do %>
-                          <i class="fa fa-file-archive-o"><span class="nav-label"> ALL POC</span></i>
+                          <i class="fa fa-file-archive-o"> <span class="nav-label"> ALL POC</span></i>
                       <% end %>
                     </li>
+                    <li><%= link_to articles_path do %>
+                        <span class="nav-label"> List of Articles</span>
+                        <% end %>
+                    </li>
+                    <li><%= link_to new_article_path do %>
+                        <span class="nav-label">New Articles</span>
+                        <% end %>
+                    </li>
+
                 
                 </li>
                 

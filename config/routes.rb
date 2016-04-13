@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
   resources :articles
-  resources :articles
-  resources :articles
-  resources :articles
+  resources :comments, only: [:index, :new, :create]
   resources :repositories do
     collection do
       get 'purches/:id' => 'repositories#purches', as: :repositories
