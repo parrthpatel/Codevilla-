@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
-  resources :articles
-  resources :comments, only: [:index, :new, :create]
+  
+  
+  resources :articles  do
+    resources :comments :only => [:create, :destroy]
+  end
+  
+
   resources :repositories do
     collection do
       get 'purches/:id' => 'repositories#purches', as: :repositories
@@ -10,11 +15,14 @@ Rails.application.routes.draw do
     end
   end
 
+  
   resources :github_profiles
+  
+
   devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
   
+
   get 'welcome/index'
-  
   get 'welcome/form'
   root 'welcome#index'
   get 'welcome/table'
@@ -24,7 +32,12 @@ Rails.application.routes.draw do
   get 'welcome/register'
   get 'welcome/mypocs'
   get 'welcome/buy_poc'
+  
+
   get 'tags/:tag', to: 'repositories#index', as: :tag
+
+
+end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your  routes lay out with "rake routes".
 
@@ -79,4 +92,4 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-end
+

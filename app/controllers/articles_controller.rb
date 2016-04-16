@@ -6,14 +6,13 @@ class ArticlesController < ApplicationController
   def index
     @articles = Article.all
     render layout: "authen"
-
   end
 
   # GET /articles/1
   # GET /articles/1.json
   def show
     render layout: "authen"
-
+    
   end
 
   # GET /articles/new

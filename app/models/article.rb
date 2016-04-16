@@ -1,5 +1,5 @@
 class Article < ActiveRecord::Base
 	belongs_to :githubprofile
-	has_many :comments
+	acts_as_commentable
 end
 
