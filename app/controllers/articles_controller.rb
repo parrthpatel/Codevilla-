@@ -11,9 +11,22 @@ class ArticlesController < ApplicationController
   # GET /articles/1
   # GET /articles/1.json
   def show
-    render layout: "authen"
-    
+    render layout: "authen" 
   end
+
+  def upvote
+    @article = Article.find(params[:id])
+    @article.upvote_by current_user
+    redirect_to article_path
+  end
+
+
+  def downvote
+    @article = Article.find(params[:id])
+    @article.downvote_by current_user
+    redirect_to article_path
+  end
+
 
   # GET /articles/new
   def new

@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
   
   
-  resources :articles
+  resources :articles do
+    member do
+      put "like", to: "articles#upvote"
+      put "dislike", to: "articles#downvote"
+    end
+  end  
   mount Commontator::Engine => '/commontator' 
 
   resources :repositories do
