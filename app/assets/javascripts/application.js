@@ -10,24 +10,15 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require_tree .
 //= require bootstrap-sprockets
 //= require jquery/jquery-2.1.1.js
 //= require pace/pace.min.js
 //= require slimscroll/jquery.slimscroll.min.js
 //= require inspinia.js
 //= require metisMenu/jquery.metisMenu.js
-//= require jeditable/jquery.jeditable.js
-//= require dataTables/datatables.min.js
 //= require peity/jquery.peity.min.js
-//= require peity/peity-demo.js
-//= require sweet-alert
-//= require custom
-
-
-
-
-
+//= require social-share-button

@@ -1,16 +1,30 @@
+
 <p id="notice"><%= notice %></p>
+<div class="row">
+                <div class="col-lg-10 col-lg-offset-1">
+                    <div class="ibox">
+                        <div class="ibox-content">
+                            <div class="pull-right">
+                                <button class="btn btn-white btn-xs" type="button">Model</button>
+                                <button class="btn btn-white btn-xs" type="button">Publishing</button>
+                                <button class="btn btn-white btn-xs" type="button">Modern</button>
+                            </div>
+                            <div class="text-center article-title">
+                            <span class="text-muted"><i class="fa fa-clock-o"></i><%= @article.created_at %></span>
+                            <h1><b><%= @article.title %></b></h1> 
+                            </div>
 
-<p>
-  <strong>Title:</strong>
-  <%= @article.title %>
+  <%= markdown @article.body %>
 </p>
-
-<p>
-  <strong>Body:</strong>
-  <%= @article.body %>
-</p>
-
-
+<% if current_user.github_profile.id == @article.github_profile_id %>
 <%= link_to 'Edit', edit_article_path(@article) %> |
 <%= link_to 'Back', articles_path %>
-
+<% else %> 
+<%= link_to 'Back', articles_path %>
+<% end %>
+<%= social_share_button_tag(@article.title) %>
+<%= commontator_thread(@article) %>
+</div>
+</div>
+</div>
+</div>

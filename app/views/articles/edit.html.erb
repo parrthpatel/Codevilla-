@@ -1,6 +1,20 @@
 <h1>Editing Article</h1>
 
+<% if current_user.github_profile.id == 4 %>
 <%= render 'form' %>
+<% else %> 
+<div class="middle-box text-center animated fadeInDown">
+        <h1>401</h1>
+        <h3 class="font-bold">Unauthorized Access</h3>
+
+        <div class="error-desc">
+            Unauthorized: Access is denied due to invalid credentials" error message" when you try to access a Web Application that is part of the application pool.<br/>
+            <strong>Actually this is not your article.</strong>
+        </div>
+    </div>
+
+<% end %>
+
 
 <%= link_to 'Show', @article %> |
 <%= link_to 'Back', articles_path %>

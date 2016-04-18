@@ -28,7 +28,6 @@ class RepositoriesController < ApplicationController
 
   
   def hook
-   
     params.permit! # Permit all Paypal input params
     status = params[:payment_status]
     if status == "Completed"
@@ -38,7 +37,6 @@ class RepositoriesController < ApplicationController
                         status: status,
                         transaction_id: params[:txt_id],
                           purchased_at: Time.now+0530)
-
     end
     render nothing: true
   

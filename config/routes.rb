@@ -1,10 +1,8 @@
 Rails.application.routes.draw do
   
   
-  resources :articles  do
-    resources :comments :only => [:create, :destroy]
-  end
-  
+  resources :articles
+  mount Commontator::Engine => '/commontator' 
 
   resources :repositories do
     collection do
