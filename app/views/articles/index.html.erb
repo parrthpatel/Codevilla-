@@ -1,31 +1,72 @@
 <p id="notice"><%= notice %></p>
 
+
+
+
 <h1>Listing Articles</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Body</th>
-      <th>Githubprofile</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
     <% @articles.each do |article| %>
-      <tr>
-        <td><%= article.title %></td>
-        <td><%= article.body %></td>
-        <td><%= commontator_thread(article) %></td>
-        <td><%= link_to 'Show', article %></td>
-        <td><%= link_to 'Edit', edit_article_path(article) %></td>
-        <td><%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+     
 
-<br>
+<div class="wrapper wrapper-content  animated fadeInRight blog">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="ibox">
+                        <div class="ibox-content">
+                            <a href="article.html" class="btn-link">
+                                <h2>
+        <%= article.title %>
+                                   
+                                </h2>
+                            </a>
+                            <div class="small m-b-xs">
+                                <strong>Adam Novak</strong> <span class="text-muted"><i class="fa fa-clock-o"></i> 28th Oct 2015</span>
+                            </div>
+                            <p>
+        <%= article.body %>
+                               
+                            </p>
+                            <div class="row">
+                                <div class="col-md-6">
+                                        <h5>Tags:</h5>
+ <%= raw article.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
+ <%= link_to 'Show', article, class: "btn btn-white" %>
+                                        
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="small text-right">
+                                        <h5>Stats:</h5>
+                                        <div> <i class="fa fa-comments-o"> </i> 56 comments </div>
+                                        <i class="fa fa-eye"> </i> 144 views
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-<%= link_to 'New Article', new_article_path %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+           <% end %>
+</div>
+</div>
+
+</div>
+

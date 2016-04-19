@@ -5,27 +5,37 @@
                     <div class="ibox">
                         <div class="ibox-content">
                             <div class="pull-right">
-                                <button class="btn btn-white btn-xs" type="button">Model</button>
-                                <button class="btn btn-white btn-xs" type="button">Publishing</button>
-                                <button class="btn btn-white btn-xs" type="button">Modern</button>
+    <%= @article.tag_list do |tag| %>
+    <%= link_to do %>
+                       <button class="btn btn-white"><%= tag %></button>
+                      <% end %>
+                                <% end %>
+                                
                             </div>
                             <div class="text-center article-title">
-                            <span class="text-muted"><i class="fa fa-clock-o"></i><%= @article.created_at %></span>
+                            <i class="fa fa-clock-o"></i><span class="text-muted"> <%= @article.created_at.to_formatted_s(:short)   %></span>
+
                             <h1><b><%= @article.title %></b></h1> 
                             </div>
 
   <%= markdown @article.body %>
 </p>
-<%= link_to "upvote", like_article_path(@article), method: :put %>
-<%= link_to "downvote", dislike_article_path(@article), method: :put %>
-<%= @article.score %>
-
-<% if current_user.github_profile.id == @article.github_profile_id %>
-<%= link_to 'Edit', edit_article_path(@article) %> |
-<%= link_to 'Back', articles_path %>
-<% else %> 
-<%= link_to 'Back', articles_path %>
+<%= link_to like_article_path(@article), method: :put do %>
+<i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
+<% end %>&nbsp;
+<%= link_to dislike_article_path(@article), method: :put do %>
+<i class="fa fa-thumbs-o-down"></i>
 <% end %>
+<strong> &nbsp;&nbsp;<%= @article.score %></strong><br>
+<% if current_user.github_profile.id == @article.github_profile_id %>
+<%= link_to 'Edit', edit_article_path(@article), class: 'btn btn-white btn-xs' %>
+<%= link_to 'Delete', @article, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs' %>
+<%= link_to 'Back', articles_path, class: 'btn btn-white btn-xs' %>
+
+
+<% else %> 
+<%= link_to 'Back', articles_path, class: 'btn btn-white btn-xs' %>
+<% end %><br>&nbsp;
 <%= social_share_button_tag(@article.title) %>
 <%= commontator_thread(@article) %>
 </div>

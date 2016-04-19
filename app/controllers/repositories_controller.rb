@@ -27,6 +27,7 @@ class RepositoriesController < ApplicationController
   end
 
   
+=begin
   def hook
     params.permit! # Permit all Paypal input params
     status = params[:payment_status]
@@ -41,13 +42,16 @@ class RepositoriesController < ApplicationController
     render nothing: true
   
   end
+=end
 
+=begin
   
   def show_purchase
   
     render 'show'
   
   end
+=end
 
   
 
