@@ -1,4 +1,11 @@
-<h1 class="text-center">My Repositories</h1>
+<div class="row wrapper border-bottom white-bg page-heading">
+                <div class="col-lg-10">
+                    <h1><b>My Repositories</b></h1>
+                </div>
+</div>
+              <div class="wrapper wrapper-content animated fadeInRight">
+
+
 <% count=0%>
 <% @repos.each do |repository| %>
 <% count +=1 %>
@@ -32,4 +39,4 @@
 <% end %>
 
 <%= will_paginate @repos, class: 'apple_pagination' %>
-<h1> 1</h1>
+</div>

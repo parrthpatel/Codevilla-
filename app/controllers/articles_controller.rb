@@ -5,12 +5,15 @@ class ArticlesController < ApplicationController
   # GET /articles.json
   def index
     @articles = Article.all
+    @article = @articles.paginate(:page => params[:page], :per_page => 8)
+    else
     render layout: "authen"
   end
 
   # GET /articles/1
   # GET /articles/1.json
   def show
+
     render layout: "authen" 
   end
 
@@ -86,6 +89,8 @@ class ArticlesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_article
       @article = Article.find(params[:id])
+      @creater = GithubProfile.find_by_id(@article.github_profile_id)
+
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

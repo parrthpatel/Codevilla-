@@ -22,3 +22,4 @@
 //= require metisMenu/jquery.metisMenu.js
 //= require peity/jquery.peity.min.js
 //= require social-share-button
+//= require toastr.min.js 

@@ -8,34 +8,22 @@ class WelcomeController < ApplicationController
     render layout: "authen"
   end
 
-  def table
-  	render layout: "authen"
-  end
-  
-  def form
-  	render layout: "authen"
-  end
   
   def profile
     @repositories = Repository.where(github_profile_nickname: current_user.github_profile.nickname)
   	render layout: "authen"
   end
-  
-  def login  
-  end
-  
-  def lock
-  end
 
-  def register
-  end
 
   def mypocs
     @repositories = Repository.where(github_profile_nickname: current_user.github_profile.nickname)
     @repos = @repositories.paginate(:page => params[:page], :per_page => 8)
     render layout: "authen"
   end
+=begin
+  
   def buy_poc
       redirect_to @repositories.paypal_url(show_repositery_path())
   end
+=end
 end

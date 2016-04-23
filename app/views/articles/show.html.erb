@@ -1,4 +1,8 @@
-
+ <div class="row wrapper border-bottom white-bg page-heading">
+                <div class="col-lg-10">
+                    <h1><b>Article / <%= @creater.name %> /<%= @article.title %></b></h1>
+                </div>
+</div>
 <p id="notice"><%= notice %></p>
 <div class="row">
                 <div class="col-lg-10 col-lg-offset-1">
@@ -15,7 +19,8 @@
                             <div class="text-center article-title">
                             <i class="fa fa-clock-o"></i><span class="text-muted"> <%= @article.created_at.to_formatted_s(:short)   %></span>
 
-                            <h1><b><%= @article.title %></b></h1> 
+                            <h1><b><%= @article.title %><% @creater.name %></b></h1> 
+                            <p><% @creater.name %></p>
                             </div>
 
   <%= markdown @article.body %>
