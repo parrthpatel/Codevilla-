@@ -4,6 +4,7 @@ class Article < ActiveRecord::Base
 	acts_as_votable
 	acts_as_taggable_on :tags
 	validates :title, :body, presence: true
+	
 
 	def score
   		self.get_upvotes.size - self.get_downvotes.size

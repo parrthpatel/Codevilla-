@@ -1,13 +1,20 @@
 class Repository < ActiveRecord::Base
-	belongs_to :github_profile
-	validates :codezip, :name, presence: true
+	
+  belongs_to :github_profile
+	validates :codezip, :description, :name, presence: true
 	mount_uploader :codezip, CodezipUploader
 	acts_as_taggable_on :tags
   serialize :notification_params, Hash
   has_and_belongs_to_many :categories
-  include PgSearch
+  #multisearchable  against: [:name, :github_profile_nickname, :description, :language], using: [:tsearch, :trigram]
+  #pg_search_scope :search_by_field, against: [:name, :github_profile_nickname, :description, :language] , using: [:tsearch, :trigram]
 
-
+  def self.search(query)
+    where('name LIKE ? OR github_profile_nickname LIKE ? OR description LIKE ? OR language LIKE ?', "%#{query}%", "%#{query}%", "%#{query}%", "%#{query}%")
+  end
+  
+end
+=begin
   if(Payment.count == 0)
     @invoice=1
   else
@@ -28,5 +35,7 @@ class Repository < ActiveRecord::Base
     }
     "#{Rails.application.secrets.paypal_host}/cgi-bin/webscr?" + values.to_query
   end
+=end
+
   
-end
+

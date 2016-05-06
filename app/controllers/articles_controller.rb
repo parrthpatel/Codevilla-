@@ -1,11 +1,13 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
+  
 
   # GET /articles
   # GET /articles.json
   def index
     @articles = Article.all
-    @article = @articles.paginate(:page => params[:page], :per_page => 8)
+    @article_paginate = @articles.paginate(:page => params[:page], :per_page => 8)
     else
     render layout: "authen"
   end

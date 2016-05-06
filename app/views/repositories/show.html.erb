@@ -22,10 +22,6 @@
 <div class="ibox-content">
 <table class="table table-hover">
 <tr>
-  <td><strong>Repo:</strong></td>
-  <td><%= @repository.repo_id %></td>
-</tr>
-<tr>
   <td><strong>Name:</strong></td>
   <td><%= @repository.name %></td>
 </tr>
@@ -45,14 +41,6 @@
   <td><strong>Description:</strong></td>
   <td><%= @repository.description %></td>
 </tr>
-<tr>
-  <td><strong>Fork:</strong></td>
-  <td><%= @repository.fork %></td>
-</tr>
-<tr>
-  <td><strong>Crated at:</strong></td>
-  <td><%= @repository.crated_at %></td>
-</tr>
   <td><strong>Git url:</strong></td>
   <td><%= @repository.git_url %></td>
 </tr>
@@ -65,49 +53,13 @@
   <td><%= @repository.clone_url %></td>
 </tr>
 <tr>
-  <td><strong>Watchers count:</strong></td>
-  <td><%= @repository.watchers_count %></td>
-</tr>
-<tr>
   <td><strong>Language:</strong></td>
   <td><%= @repository.language %></td>
-</tr>
-<tr>
-  <td><strong>Has issues:</strong></td>
-  <td><%= @repository.has_issues %></td>
-</tr>
-<tr>
-  <td><strong>Has downloads:</strong></td>
-  <td><%= @repository.has_downloads %></td>
-</tr>
-<tr>
-  <td><strong>Has wiki:</strong></td>
-  <td><%= @repository.has_wiki %></td>
-</tr>
-<tr>
-  <td><strong>Forks count:</strong></td>
-  <td><%= @repository.forks_count %></td>
-</tr>
-<tr>
-  <td><strong>Open issues count:</strong></td>
-  <td><%= @repository.open_issues_count %></td>
-</tr>
-<tr>
-  <td><strong>Open issues:</strong></td>
-  <td><%= @repository.open_issues %></td>
-</tr>
-<tr>
-  <td><strong>Watchers:</strong></td>
-  <td><%= @repository.watchers %></td>
 </tr>
 <tr>
    <td><strong>Code File:</strong></td>
    <td><%= link_to 'Download', @repository.codezip.url, class: 'btn btn-primary' %></td>    
 <!-- <td><%= @repository.codezip %></td>  -->
-</tr>
-<tr>
-  <td><strong>Purchase Amount:</strong></td>
-  <td><%= @repository.amount %></td>
 </tr>
 <tr>
   <td>Tags:</td>
@@ -119,8 +71,19 @@
 </tr>
 </table>
 
-<%= link_to 'Edit', edit_repository_path(@repository), class: 'btn btn-primary' %>
-<%= link_to 'Back', repositories_path, class: 'btn btn-white' %>
+<% if current_user.github_profile.id == @repository.github_profile_id %>
+
+<%= link_to 'Edit', edit_repository_path(@repository), class: 'btn btn-primary btn-xs' %>
+<%= link_to 'Delete', @repository, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs' %>
+<%= link_to 'Back', repositories_path, class: 'btn btn-white btn-xs' %>
+
+<% else %> 
+
+<%= link_to 'Back', repositories_path, class: 'btn btn-white btn-xs' %>
+
+<% end %><br>&nbsp;
+
+
 </div>
 </div>
 </div>

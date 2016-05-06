@@ -6,9 +6,23 @@
 <div class="wrapper wrapper-content  animated fadeInRight blog">
 
 
+<% if current_user.github_profile.id == @repository.github_profile_id %>
 <%= render 'form' %>
-<%= link_to 'Show', @repository %> |
+<% else %> 
+<div class="middle-box text-center animated fadeInDown">
+        <h1>401</h1>
+        <h3 class="font-bold">Unauthorized Access</h3>
+
+        <div class="error-desc">
+            Unauthorized: Access is denied due to invalid credentials" error message" when you try to access a Web Application that is part of the application pool.<br/>
+            <strong>Actually this is not your article.</strong>
+        </div>
+</div>
+
+<% end %>
+<%= link_to 'Show', @repository, class: "btn btn-primary" %> |
 <%= link_to 'Back', repositories_path %>
+</div>
 </div>
 
 

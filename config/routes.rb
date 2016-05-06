@@ -1,9 +1,7 @@
 Rails.application.routes.draw do
   
   
-  get 'search/repository'
-
-  get 'search/articles'
+  get 'search/list'
 
   resources :articles do
     member do
@@ -29,17 +27,13 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
   
 
-  get 'welcome/index'
   get 'welcome/form'
   root 'welcome#index'
   get 'welcome/table'
   get 'welcome/profile'
-  get 'welcome/login'
-  get 'welcome/lock'
-  get 'welcome/register'
   get 'welcome/mypocs'
   get 'welcome/buy_poc'
-  
+  get 'search/list'  
 
   get 'tags/:tag', to: 'repositories#index', as: :tag
 

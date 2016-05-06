@@ -19,15 +19,10 @@ class RepositoriesController < ApplicationController
   
   end
 
-  
+=begin 
   def purches
-  
-    redirect_to @repository.paypal_url(repository_path(@repository)) 
-  
+    redirect_to @repository.paypal_url(repository_path(@repository))  
   end
-
-  
-=begin
   def hook
     params.permit! # Permit all Paypal input params
     status = params[:payment_status]
@@ -40,12 +35,7 @@ class RepositoriesController < ApplicationController
                           purchased_at: Time.now+0530)
     end
     render nothing: true
-  
-  end
-=end
-
-=begin
-  
+  end  
   def show_purchase
   
     render 'show'
@@ -69,6 +59,9 @@ class RepositoriesController < ApplicationController
     render layout: "authen"
   
   end
+  
+
+
 
 
   def new
@@ -131,6 +124,7 @@ class RepositoriesController < ApplicationController
   def create
   
     @repository = Repository.new(repository_params)
+    @repository.github_profile_id = current_user.github_profile.id
     
 
       #@categories = Category.find params[:repository].delete[:categories]

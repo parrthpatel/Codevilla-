@@ -1,8 +1,8 @@
+
 source 'https://rubygems.org'
 
 gem 'rails', '4.2.5'
 gem 'pg', '~> 0.15'
-gem 'pg_search'
 gem 'bootstrap-sass', '~> 3.3.1'
 gem 'font-awesome-rails'
 gem 'sass-rails', '~> 5.0'
@@ -21,7 +21,6 @@ gem 'commontator'
 gem 'acts_as_votable'
 gem 'social-share-button'
 gem 'faker'
-gem 'pg_search'
 gem 'will_paginate', '~> 3.0.6'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
@@ -38,4 +37,3 @@ group :development do
   gem 'pry-byebug'
   gem 'spring'
 end
-

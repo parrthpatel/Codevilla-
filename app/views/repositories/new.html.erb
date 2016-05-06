@@ -34,7 +34,7 @@
                       </div>
                     </div>
                     <div class="form-group row">
-                      <%= f.label :github_profile_nickname, class: 'col-sm-2 control-label' %>
+                      <%= f.label :github_profile_nickname, "Creater Name", class: 'col-sm-2 control-label' %>
                       <div class="col-sm-10">
                       <%= f.text_field :github_profile_nickname, value: @maker, class: 'form-control' %>
                       </div>
@@ -82,12 +82,7 @@
                       <%= f.file_field :codezip, class: 'form-control', rows: 12 %>
                     </div>
                     </div>
-                    <div class="form-group row">
-                      <%= f.label :amount, class: 'col-sm-2 control-label' %>
-                      <div class="col-sm-10">
-                      <%= f.text_field :amount, class: 'form-control' %>
-                      </div>
-                    </div>
+                    
                     <div class="form-group row">
                     <%= f.label :tag_list, "Tags (separated by commas)", class: 'col-sm-2 control-label' %>
                     <div class="col-sm-10">

@@ -10,7 +10,7 @@ class WelcomeController < ApplicationController
 
   
   def profile
-    @repositories = Repository.where(github_profile_nickname: current_user.github_profile.nickname)
+    @repositories = Repository.where(github_profile_id: current_user.github_profile.id)
   	render layout: "authen"
   end
 

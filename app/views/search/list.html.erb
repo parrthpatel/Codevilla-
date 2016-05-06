@@ -1,0 +1,55 @@
+
+
+<div class="row wrapper border-bottom white-bg page-heading">
+                <div class="col-lg-10">
+                    <h1><b>Repository List</b></h1>
+                </div>
+</div>
+
+
+
+
+<div class="wrapper wrapper-content animated fadeInRight">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="ibox float-e-margins"> 
+                        <div class="ibox-content">
+                            <div class="search-form">
+                               
+                                <%= form_tag({controller: "search", action: "list"}, method: "get") do %>
+                                <%= text_field_tag(:search) %>
+                                <%= submit_tag("Search", class: 'btn btn-primary') %>
+                                <% end %>
+                            </div>
+
+                            
+
+
+
+                            <div class="hr-line-dashed"></div>
+
+
+
+<% @pg_search_documents.each do |repository| %>
+
+                            <div class="search-result">
+                                <h3><%= truncate(repository.name, length: 23) %> &nbsp; </h3><%= link_to repository, class: 'btn btn-default' do %>
+                 <i class = 'fa fa-view'>Show</i>
+                 <% end %>
+                                
+                                <p>
+                                    <%= repository.description %>
+                                </p>
+                                
+				                 
+
+                            </div>
+                            <div class="hr-line-dashed"></div>
+                            <% end %>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        </div>
+<%= will_paginate @pg_search_documents, class: 'apple_pagination' %>
+</div>
